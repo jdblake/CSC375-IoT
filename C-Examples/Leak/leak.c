@@ -1,4 +1,9 @@
-// Program to intentionally leak memory
+/*
+** Program to intentionally leak memory
+**
+** NOTE 1: Difference between local array and local calloc
+** NOTE 2: Use of free
+*/
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -11,11 +16,11 @@
 
 int getLargest() {
   int max;
-  //int arr[MAX_ARR_SIZE];
-/**/
+  int arr[MAX_ARR_SIZE];
+/*
   int *arr;
   arr = calloc(MAX_ARR_SIZE,sizeof(int));
-/**/
+*/
   for (int i = 0; i < MAX_ARR_SIZE; i++) {
     arr[i] = rand() % MAX_VAL;
   }
@@ -23,6 +28,7 @@ int getLargest() {
   for (int i = 1; i < MAX_ARR_SIZE; i++)
     if (arr[i] > max)
       max = arr[i];
+  //free(arr);
   return max;
 }
 
