@@ -1,8 +1,12 @@
 /* max: computes the larger of two int values
- *   x: one value
- *   y: the other value
- *   returns: the larger of x and y
- */
+**   x: one value
+**   y: the other value
+**   returns: the larger of x and y
+**
+** Note 1: single return from max function.
+** Note 2: Confirmation that C is call-by-value
+*/
+
 #include "stdio.h"
 
 int max(int x, int y) {

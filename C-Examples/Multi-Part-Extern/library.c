@@ -1,3 +1,5 @@
+// Added library include and initialized global variable
+
 #include <stdio.h>
 #include "library.h"
 

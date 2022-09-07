@@ -1,3 +1,5 @@
+// Program to intentionally leak memory
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <sys/sysinfo.h>
@@ -32,5 +34,5 @@ int main() {
           n,get_avphys_pages()*sysconf(_SC_PAGESIZE));
   }
 
-  return(1);
+  return(0);
 }

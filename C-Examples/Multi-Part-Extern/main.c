@@ -1,3 +1,5 @@
+// Global variable now available.
+
 #include <stdio.h>
 #include "library.h"
 

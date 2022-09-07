@@ -1,3 +1,6 @@
+// Simple string IO (array of char)
+//   gcc -o string string.c
+
 #include "stdio.h"
 #include "string.h"
 
