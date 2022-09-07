@@ -16,11 +16,11 @@
 
 int getLargest() {
   int max;
-  int arr[MAX_ARR_SIZE];
-/*
+//  int arr[MAX_ARR_SIZE];
+
   int *arr;
   arr = calloc(MAX_ARR_SIZE,sizeof(int));
-*/
+
   for (int i = 0; i < MAX_ARR_SIZE; i++) {
     arr[i] = rand() % MAX_VAL;
   }

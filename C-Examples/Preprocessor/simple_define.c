@@ -9,10 +9,10 @@
 
 #define VALUE 11
 #define max(x,y) ((x>y)?x:y)
-//#define YES
+#define YES
 
 int main() {
-  printf("VALUE: %d\n",VALUE);
+  printf("VALUE: %06d %d\n",VALUE,(VALUE+1));
   printf("MAX(4,VALUE): %d\n",max(4,VALUE));
   #ifdef YES
     printf("YES!!\n");
