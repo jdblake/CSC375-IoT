@@ -1,18 +1,16 @@
 #include <Arduino.h>
-
-const int ledPin =  13;
  
 void setup() {
-  pinMode(ledPin, OUTPUT);
+  pinMode(LED_BUILTIN, OUTPUT);
   Serial.begin(115200);
-  while (!Serial);
+  //while (!Serial);
 }
  
 void loop() {
-  delay(100);
+  delay(1000);
   Serial.println("ON");
-  digitalWrite(ledPin, HIGH);
-  delay(100);
+  digitalWrite(LED_BUILTIN, HIGH);
+  delay(1000);
   Serial.println("OFF");
-  digitalWrite(ledPin, LOW);
+  digitalWrite(LED_BUILTIN, LOW);
 }
