@@ -9,11 +9,6 @@ PCF8563 rtc;
 Time nowTime;
 File dataFile;
 
-int pressed = 0;
-int buttonCount = 0;
-int buttonState;
-const int buttonPin = 1;
-
 const int chipSelect = 2;  // SD CS pin
 
 U8X8_SSD1306_128X64_NONAME_HW_I2C u8x8(/* reset=*/ U8X8_PIN_NONE);
@@ -30,7 +25,7 @@ String print_time(Time timestamp) {
   int Second = timestamp.second;
 
   sprintf(message, "%d-%d-%d,%02d:%02d:%02d", Month,Day,Year,Hour,Minute,Second);
-
+  
   return message;
 }
 
@@ -56,7 +51,7 @@ void setup() {
     while (1);
   }
   Serial.println("card initialized.");
-
+  
   nowTime = rtc.getTime();   //get current time
 
   //print current time
@@ -72,34 +67,24 @@ void setup() {
   Serial.print(":");
   Serial.println(nowTime.second);
 
-  pinMode(buttonPin, INPUT_PULLUP);
-
 }
 
 void loop() {
 
-  buttonState = digitalRead(buttonPin);
-
-  // check if the pushbutton is pressed. If it is, the buttonState is HIGH:
-  if (buttonState == HIGH) {
-    if (!pressed) {
-      pressed = 1;
-      // LOG PRESS
-
-      buttonCount++;
+      int sensorValue = analogRead(A0);
 
       // write to display
-      u8x8.setCursor(0, 0);
-      u8x8.print(buttonCount);
+      u8x8.clear();
+      u8x8.print(sensorValue);   
 
       // make a string for assembling the data to log:
       String dataString = "";
 
       // enter the timestamp
-      nowTime = rtc.getTime();   //get current time
+      nowTime = rtc.getTime();   //get current time 
       dataString += print_time(nowTime);
-      dataString += ",";
-      dataString += String(buttonCount);
+      dataString += ","; 
+      dataString += String(sensorValue);
 
       // open the file. note that only one file can be open at a time,
       // so you have to close this one before opening another.
@@ -114,8 +99,6 @@ void loop() {
       } else
         Serial.println("error opening datalog.txt");
 
-    }
-  } else {
-    pressed = 0;
-  }
+  delay(1000);
+
 }

@@ -10,7 +10,7 @@
 // CAN, I2C, SPI, or Serial (UART).
 
 //initialize and declare variables
-const int ledPin = 13; //led attached to this pin
+const int ledPin = LED_BUILTIN; //led attached to this pin
 const int buttonPin = 2;     // the number of the pushbutton pin
 uint8_t buttonState = LOW; //this variable tracks the state of the button, low if not pressed, high if pressed
 
@@ -29,10 +29,16 @@ openmv::rpc_hardware_serial_uart_master interface(115200);
 void setup() {
     // initialize the pushbutton pin as an input:
     pinMode(buttonPin, INPUT);
+
+    Serial.begin(115200);
+    while (!Serial) ;
+
+    Serial.println("Connected");
     
     // Startup the RPC interface and a debug channel.
     interface.begin();
-    Serial.begin(115200);
+
+    Serial.println("Interface up");
 }
 
 //////////////////////////////////////////////////////////////
@@ -96,6 +102,6 @@ void loop() {
 
     // analog_write_example();
 
-    serial_print_example();
+    //serial_print_example();
     
 }
