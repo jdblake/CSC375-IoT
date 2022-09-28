@@ -1,7 +1,3 @@
-/*
-** UPDATE TO BETTER CLOCK LIBRARY!! NEED ONE THAT KNOWS IF CLOCK IS RUNNING!!
-*/
-
 #include <Arduino.h>
 
 #include <U8x8lib.h>
@@ -11,7 +7,7 @@ PCF8563 pcf;
 
 U8X8_SSD1306_128X64_NONAME_HW_I2C u8x8(/* reset=*/ U8X8_PIN_NONE);
 //U8X8_SSD1306_128X64_NONAME_HW_I2C u8x8(/* clock=*/ PIN_WIRE_SCL, /* data=*/ PIN_WIRE_SDA, /* reset=*/ U8X8_PIN_NONE);   // OLEDs without Reset of the Display
- 
+
 void setup() {
   //Serial.begin(115200);
   u8x8.begin();
@@ -30,10 +26,10 @@ void setup() {
   pcf.startClock();//start the clock
   */
 }
- 
+
 void loop() {
   Time nowTime = pcf.getTime();//get current time
- 
+
   u8x8.setCursor(0, 0);
   u8x8.print(nowTime.day);
   u8x8.print("/");
