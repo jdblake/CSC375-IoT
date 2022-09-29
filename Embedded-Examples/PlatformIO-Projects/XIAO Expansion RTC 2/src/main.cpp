@@ -11,6 +11,7 @@ char daysOfTheWeek[7][12] = {"Sunday", "Monday", "Tuesday", "Wednesday", "Thursd
 
 void setup () {
   Serial.begin(115200);
+  while (!Serial) ;
 
 #ifndef ESP8266
   while (!Serial); // wait for serial port to connect. Needed for native USB

@@ -11,7 +11,7 @@ void setup() {
 
 void loop() {
 	unsigned long diff = millis() - curTime;
-	if (diff > 1000) {
+	if (diff > 100) {
 		curTime = millis();
 		state = !state;
 		digitalWrite(LED_BUILTIN, state);
