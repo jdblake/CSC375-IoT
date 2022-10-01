@@ -1,6 +1,7 @@
 #include <Arduino.h>
 
 void setup() {
+  delay(5000);
   //Declaring LED pin as output
   pinMode(LED_BUILTIN, OUTPUT);
 }
