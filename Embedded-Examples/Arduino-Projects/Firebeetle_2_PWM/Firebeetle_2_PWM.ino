@@ -1,4 +1,4 @@
-const int ledPin = LED_BUILTIN;
+const int ledPin = 2;
 
 // setting PWM properties
 const int freq = 5000;
@@ -11,6 +11,8 @@ void setup(){
   
   // attach the channel to the GPIO to be controlled
   ledcAttachPin(ledPin, ledChannel);
+
+  delay(2000);
 }
  
 void loop(){
@@ -18,13 +20,17 @@ void loop(){
   for(int dutyCycle = 0; dutyCycle <= 255; dutyCycle++){   
     // changing the LED brightness with PWM
     ledcWrite(ledChannel, dutyCycle);
-    delay(15);
+    delay(5);
   }
+
+  delay(200);
 
   // decrease the LED brightness
   for(int dutyCycle = 255; dutyCycle >= 0; dutyCycle--){
     // changing the LED brightness with PWM
     ledcWrite(ledChannel, dutyCycle);   
-    delay(15);
+    delay(5);
   }
+
+  delay(200);
 }
