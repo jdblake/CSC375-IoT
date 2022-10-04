@@ -6,6 +6,8 @@ I2C_MPU6886 imu(I2C_MPU6886_DEFAULT_ADDRESS, Wire1);
 
 void setup() {
   Serial.begin(115200);
+  while (!Serial);
+
   delay(1000);
 
   Wire1.begin(21, 22);
