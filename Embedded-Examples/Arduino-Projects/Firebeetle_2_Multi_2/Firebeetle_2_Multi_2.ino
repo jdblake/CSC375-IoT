@@ -2,9 +2,8 @@ TaskHandle_t LED_Task;
 
 //Blink_LED: blinks an LED every 1000 ms
 void Blink_LED(void *pvParameters ){
-  Serial.printf("Blink_LED() running on core %d\n",xPortGetCoreID());
 
-  for(;;){
+  while (1) {
     Serial.printf("Blink_LED() running on core %d\n",xPortGetCoreID());
     digitalWrite(LED_BUILTIN, HIGH);
     delay(500);
