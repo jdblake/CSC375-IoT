@@ -35,8 +35,16 @@
 
 void setup()
 {
-  Wire.begin();
   Serial.begin(115200);
+  while (!Serial) ;
+  delay(1000);
+
+  #if defined(XIAO)
+  Wire.begin();
+  #elif defined(CORE2)
+  Wire.begin(32,33);
+  #endif
+  
   TSL2561.init();
 }
  

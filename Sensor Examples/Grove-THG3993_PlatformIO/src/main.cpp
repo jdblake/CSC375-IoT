@@ -10,11 +10,15 @@ void setup()
 {
   Serial.begin(115200);
   while (!Serial) ;
+  delay(1000);
   Serial.println("TMG3993 Proximity Example");
-
-  Serial.println(SDA);
  
+  #ifdef XIAO
   Wire.begin();
+  #endif
+  #ifdef CORE2
+  Wire.begin(32,33);
+  #endif
  
   if (tmg3993.initialize() == false)
   {

@@ -12,8 +12,16 @@ DHT dht(DHTTYPE);         //   DHT10 DHT20 don't need to define Pin
 void setup() {
  
     Serial.begin(115200);
+    while (!Serial) ;
+    delay(1000);
     Serial.println("DHTxx test!");
+    
+    #ifdef XIAO
     Wire.begin();
+    #endif
+    #ifdef CORE2
+    Wire.begin(32,33);
+    #endif
  
     /*if using WIO link,must pull up the power pin.*/
     // pinMode(PIN_GROVE_POWER, OUTPUT);
