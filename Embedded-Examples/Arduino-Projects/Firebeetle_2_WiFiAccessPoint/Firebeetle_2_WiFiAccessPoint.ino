@@ -99,7 +99,7 @@ void setup() {
   Serial.printf("setup core: %d\n",xPortGetCoreID());
 
   // Note task priority to stop watchdog
-//  xTaskCreatePinnedToCore(wifiCode,"wifiTask",10000,NULL,tskIDLE_PRIORITY,&wifiTask,0);
+//xTaskCreatePinnedToCore(wifiCode,"wifiTask",10000,NULL,tskIDLE_PRIORITY,&wifiTask,0);
   xTaskCreatePinnedToCore(wifiCode,"wifiTask",10000,NULL,0,&wifiTask,0);
   delay(500); 
 }
