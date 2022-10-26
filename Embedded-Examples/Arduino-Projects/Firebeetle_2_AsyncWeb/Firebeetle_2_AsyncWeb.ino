@@ -1,7 +1,7 @@
 #include "WiFi.h"
 #include "ESPAsyncWebServer.h"
  
-const char* ssid = "Stamp_C3";
+const char* ssid = "ESP32_AP";
 const char* password =  "123456789";
  
 AsyncWebServer server(80);
@@ -20,6 +20,10 @@ void setup(){
  
   server.on("/hello", HTTP_GET, [](AsyncWebServerRequest *request){
     request->send(200, "text/plain", "Hello World");
+  });
+  
+  server.on("/goodbye", HTTP_GET, [](AsyncWebServerRequest *request){
+    request->send(200, "text/plain", "Goodbye World");
   });
  
   server.begin();
