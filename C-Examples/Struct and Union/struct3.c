@@ -10,6 +10,7 @@ struct books {
 
 /* function declaration */
 void printBook( struct books *book );
+
 int main( ) {
 
    struct books book1;        /* Declare book1 of type Book */
