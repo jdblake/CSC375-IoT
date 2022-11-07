@@ -18,12 +18,12 @@ student_fixed student1;
 student_dynamic *student2;
 
 int main() {
-  char name[80];
-  //char name[MAX_LINE];
+  char name[MAX_LINE];
   printf("What is your name? ");
-  scanf("%s",name);
-  //fgets(name,MAX_LINE,stdin);
-  printf("Hello %s!\t(%d)\n",name,strlen(name));
+  //scanf("%s",name);
+  fgets(name,MAX_LINE,stdin);
+  name[strlen(name)-1] = '\0';
+  printf("Hello %s!\t(%ld)\n",name,strlen(name));
 
   // Create student structures!
 

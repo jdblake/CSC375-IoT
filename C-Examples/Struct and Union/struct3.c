@@ -8,7 +8,7 @@ struct books {
    int   book_id;
 };
 
-/* function declaration */
+/* function prototype */
 void printBook( struct books *book );
 
 int main( ) {
