@@ -1,23 +1,17 @@
 #include <stdio.h>
+#include <string.h>
 
-union unionJob
-{
-   //defining a union
-   char name[32];
-   float salary;
-   int workerNo;
-} uJob;
+union Data {
+   int i;
+   float f;
+   char str[20];
+};
 
-struct structJob
-{
-   char name[32];
-   float salary;
-   int workerNo;
-} sJob;
+int main( ) {
 
-int main()
-{
-   printf("size of union = %ld bytes\n", sizeof(uJob));
-   printf("size of structure = %ld bytes\n", sizeof(sJob));
+   union Data data;
+
+   printf( "Memory size occupied by data : %ld\n", sizeof(data));
+
    return 0;
 }
