@@ -37,7 +37,10 @@ void printList(node *n) {
 
 // Free a list recursively
 void freeList(node *n) {
-  // Write this!!
+  if (n != NULL) {
+    freeList(n->next);
+    free(n->next);
+  }
 }
 
 // Main function
@@ -45,5 +48,6 @@ int main() {
   makeList(10);
   printList(head);
   freeList(head);
+  free(head);
   return 0;
 }

@@ -18,6 +18,7 @@ student_fixed student1;
 student_dynamic *student2;
 
 int main() {
+  int cur_ID = 1234;
   char name[MAX_LINE];
   printf("What is your name? ");
   //scanf("%s",name);
@@ -25,7 +26,13 @@ int main() {
   name[strlen(name)-1] = '\0';
   printf("Hello %s!\t(%ld)\n",name,strlen(name));
 
-  // Create student structures!
+  student1.id = cur_ID;
+  strcpy(student1.name,name);
+
+  student2 = malloc(sizeof(student_dynamic));
+  student2->id = cur_ID;
+  student2->name = calloc(strlen(name),sizeof(char));
+  strcpy(student2->name,name);
 
   return 0;
 }
