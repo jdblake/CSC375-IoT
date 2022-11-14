@@ -13,7 +13,7 @@ typedef struct peerNode {
 peerNode *peerList;
 
 // Function to convert uint8_t array MAC to string
-void formatMacAddress(const uint8_t *macAddr, char *buffer, int maxLength)
+void formatMACAddress(const uint8_t *macAddr, char *buffer, int maxLength)
 {
   snprintf(buffer, maxLength, "%02x:%02x:%02x:%02x:%02x:%02x", macAddr[0], macAddr[1], macAddr[2], macAddr[3], macAddr[4], macAddr[5]);
 }
@@ -26,14 +26,14 @@ void dumpPeers(peerNode *cur) {
 }
 
 // Callback function for send process. Prints message success/failure message.
-void OnDataSent(const uint8_t *mac_addr, esp_now_send_status_t status) {
+void onDataSent(const uint8_t *macAddr, esp_now_send_status_t status) {
 
   // Print message on send
 
 }
 
 // Callback function for receive process. Records peer if new. Responds on "Hello" messages.
-void OnDataRecv(const uint8_t * mac, const uint8_t *incomingData, int len) {
+void onDataRecv(const uint8_t *macAddr, const uint8_t *incomingData, int len) {
 
   // Process all incoming messages
 
