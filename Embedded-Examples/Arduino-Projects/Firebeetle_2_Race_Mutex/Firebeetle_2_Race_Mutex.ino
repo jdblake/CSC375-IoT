@@ -66,8 +66,6 @@ void highPriorityTask( void * parameter )
     sum = cur+1;
     Serial.println("highPriorityTask releases key");
     xSemaphoreGive( xMutex );
-    /* delay so that lowPriorityTask has chance to run */
-    delay(random(800,1200));
   }
   Serial.println("HIGH DONE");
   while (1) delay(10);
